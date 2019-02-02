@@ -1,0 +1,10 @@
+/.idea/**
+/out/**
+/build/**
+/gen/**
+/project/**
+/target/**
+/src/project/
+/src/target
+/target/
+/node_modules/**
