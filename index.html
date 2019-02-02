@@ -2,45 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Android Debload Script Generator</title>
+  <title>Android Debloat Script Generator</title>
 
   <link rel="stylesheet" href="basscss.min.css">
-
+<style>
+  div table tbody tr:hover {
+    background: #afecef;
+  }
+  table tbody tr:nth-child(odd){
+    background: #efefef;
+  }
+</style>
 </head>
 <body>
-<div class="container">
-  <p class="h1">Android Debload Script Generator</p>
-  <p>
-    This tool will generate a script to debloat your phone based on the output of the PM command.
-  </p>
-  <p>
-    The resulting script will probably require root. I did this on a Sony Xperia XZ1 compact without
-    unlocking the bootloader, so any temporary root will do the trick.
-  </p>
+<p class="h1">Android Debloat Script Generator</p>
+<p>
+  This tool will generate a script to debloat your phone based on the output of the PM command.
+</p>
+<p>
+  The resulting script will probably require root. I did this on a Sony Xperia XZ1 compact without
+  unlocking the bootloader, so any temporary root will do the trick.
+</p>
 
-  <p class="h2">Prerequisites</p>
-  <div>
-    <ul>
-      <li>A computer with ADB and relevant drivers installed</li>
-      <li>USB debugging enabled on the device</li>
-    </ul>
-  </div>
-
-  <p class="h2">Tool</p>
-  <ol>
-    <li>Run <code>pm list packages -f</code> and paste the output into the text are below.</li>
-    <li>Press the button.</li>
-    <li>Copy the output into a shell and run it</li>
-  </ol>
-  <div class="clearfix">
-    <div class="col-12">
-      <button id="button" class="btn btn-success">Do it!</button>
-    </div>
-  </div>
-  <div class="clearfix pt2">
-    <textarea cols="90" rows="15" class="fit" id="lines"></textarea>
-  </div>
+<p class="h2">Prerequisites</p>
+<div>
+  <ul>
+    <li>A computer with ADB and relevant drivers installed</li>
+    <li>USB debugging enabled on the device</li>
+  </ul>
 </div>
+
+<p class="h2 ">Tool</p>
+<ol>
+  <li>Run <code>adb shell pm list packages -f</code> and paste the output into the text are below.
+  </li>
+  <li>Press the button.</li>
+  <li>Select the packages you want to disable.</li>
+  <li>Copy the output into a shell and run it.</li>
+</ol>
+<label for="input"></label><textarea cols="90" rows="10" class="fit" id="input"></textarea>
+
+<div class="clearfix mt1">
+  <button id="button">Generate table</button>
+</div>
+
+<hr/>
+
+<div id="output"></div>
+
 <script src="tool.js"></script>
 </body>
 </html>
